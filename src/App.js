@@ -16,7 +16,7 @@ const ShopGridStandard = lazy(() => import("./pages/shop/ShopGridStandard"));
 const Product = lazy(() => import("./pages/shop-product/Product"));
 // other pages
 const NotFound = lazy(() => import("./pages/other/NotFound"));
-
+const LoginRegister = lazy( () => import( "./pages/other/LoginRegister" ) );
 const App = (props) => {
   useEffect(() => {
     props.dispatch(
@@ -65,7 +65,7 @@ const App = (props) => {
                     <Product {...routeProps} key={routeProps.match.params.id} />
                   )}
                 />
-
+<Redirect from="/auth" to="auth/login" />
                 <Route
                   path={process.env.PUBLIC_URL + "/not-found"}
                   component={NotFound}
